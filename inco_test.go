@@ -12,7 +12,7 @@ func TestPost(t *testing.T) {
 		IconEmoji: ":ghost:",
 		Channel:   "#test",
 	}
-	if err := Incomming(os.Getenv("SLACK_URL"), msg); err != nil {
+	if err := Incoming(os.Getenv("SLACK_URL"), msg); err != nil {
 		t.Errorf(err.Error())
 	}
 }

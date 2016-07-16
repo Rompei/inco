@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-// Message is object for incomming webhook.
+// Message is object for incoming webhook.
 type Message struct {
 	Text      string `json:"text"`
 	IconEmoji string `json:"icon_emoji"`
@@ -14,8 +14,8 @@ type Message struct {
 	Channel   string `json:"channel"`
 }
 
-// Incomming post to incomming webhook.
-func Incomming(url string, msg *Message) (err error) {
+// Incoming post to incoming webhook.
+func Incoming(url string, msg *Message) (err error) {
 	b, err := json.Marshal(msg)
 	if err != nil {
 		return
