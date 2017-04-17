@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 // Message is object for incoming webhook.
@@ -27,7 +28,9 @@ func Incoming(url string, msg *Message) (err error) {
 	}
 
 	req.Header.Set("Content-Type", "application/json")
-	client := &http.Client{}
+	client := &http.Client{
+		Timeout: time.Second * 30,
+	}
 	resp, err := client.Do(req)
 	if err != nil {
 		return
